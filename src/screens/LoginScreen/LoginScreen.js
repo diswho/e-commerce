@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native"
+import { LoginForm } from "./components/LoginForm";
 
 export const LoginScreen = () => {
     // <View style={styles.container}>
     return (
         <View >
-            <Text>LoginScreen</Text>
+            <LoginForm />
         </View >
     )
 }

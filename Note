@@ -6,3 +6,6 @@ npx create-expo-app e-commerce
 do iOS development without a Mac
 - npm run web
 - expo start
+
+yarn add @expo/vector-icons
+yarn add redux-form
