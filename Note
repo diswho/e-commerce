@@ -9,3 +9,4 @@ do iOS development without a Mac
 
 yarn add @expo/vector-icons
 yarn add redux-form
+yarn add expo-notifications expo-permissions

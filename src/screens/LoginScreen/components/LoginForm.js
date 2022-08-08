@@ -2,13 +2,21 @@ import { Ionicons } from "@expo/vector-icons";
 import { Dimensions, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { TouchableWithoutFeedback } from "react-native-web";
 import Colors from "../../../utils/Colors";
+import AskingExpoToken from "../../../components/Notification/AskingNotiPermission";
 
 const { height } = Dimensions.get('window');
 
 export const LoginForm = (props) => {
   const { handleSubmit } = props;
   const submit = async (values) => {
-    // TODO: not finish
+    const pushToken = await AskingExpoToken()
+    // console.log(pushToken)
+    try {
+      // TODO: Unfinish task
+      fetch()
+    } catch (error) {
+      
+    }
   }
   return (
     <KeyboardAvoidingView behavior={Platform.OS == 'ios' ? 'position' : 'height'}>
@@ -30,10 +38,12 @@ export const LoginForm = (props) => {
             zIndex: -1,
           }}>
             <TouchableOpacity
-              onPress={() => { }}
+              onPress={() => submit()}
               style={{ marginVertical: 10, alignItems: 'center' }}
             >
-              {/*  */}
+              <View style={styles.signIn}>
+                <Text>Login</Text>
+              </View>
             </TouchableOpacity>
           </View>
         </TouchableWithoutFeedback>
