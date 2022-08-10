@@ -3,19 +3,54 @@ import { Dimensions, KeyboardAvoidingView, ScrollView, StyleSheet, Text, Touchab
 import { TouchableWithoutFeedback } from "react-native-web";
 import Colors from "../../../utils/Colors";
 import AskingExpoToken from "../../../components/Notification/AskingNotiPermission";
+import { timeoutPromise } from "../../../utils/Tools";
 
 const { height } = Dimensions.get('window');
 
 export const LoginForm = (props) => {
   const { handleSubmit } = props;
+  const email = "phouvieng.11.30@gmail.com"
+  const password = "dfkj;j;aldf"
   const submit = async (values) => {
     const pushToken = await AskingExpoToken()
     // console.log(pushToken)
     try {
-      // TODO: Unfinish task
-      fetch()
+      // const response = await timeoutPromise(
+      //   fetch("http://115.84.121.41:6868/api/v1/user/login",{
+      //     headers: {
+      //       Accept: 'application/json',
+      //       'Content-Type': 'application/json',
+      //     },
+      //     method: 'POST',
+      //     body: JSON.stringify({
+      //       email,
+      //       password,
+      //       pushTokens: [pushToken],
+      //     }),
+      //   })
+      // )
+      // console.log(await response.json())
+      const response = await fetch("http://115.84.121.41:6868/api/v1/user/login",
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify({
+            email,
+            password,
+            pushTokens: [pushToken]
+          })
+        }
+      )
+      // if (!response.ok) 
+      console.log(`====  ${response.ok}`)
+      console.log(await response.json())
+      // .then(response => response.text())
+      //   .then(result => console.log(result))
+      //   .catch(error => console.log('error', error));
     } catch (error) {
-      
+      console.log(error)
     }
   }
   return (
